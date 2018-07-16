@@ -7,8 +7,17 @@ class CityIntro extends React.Component {
     this.state = {
       city: null,
     }
+  }
 
+  componentDidMount() {
     this.fetchCity();
+  }
+
+  cityUpdated(city) {
+    this.setState({ city: city });
+    if (this.props.onCityUpdated) {
+      this.props.onCityUpdated(city);
+    }
   }
 
   fetchCity() {
@@ -16,9 +25,7 @@ class CityIntro extends React.Component {
     fetch(url)
       .then((response) => response.json())
       .then((responseJson) => {
-        this.setState({
-          city: responseJson.city,
-        });
+        this.cityUpdated(responseJson.city)
       })
       .catch((error) => {
         console.error(error);
