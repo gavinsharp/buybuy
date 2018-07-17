@@ -1,9 +1,11 @@
 import fetchMock from 'fetch-mock';
+import {cleanup} from 'react-testing-library';
 
-beforeAll(() => {
+beforeEach(() => {
   fetchMock.get('begin:http://api.ipstack.com/', { city: "Fakeville" });
 });
 
-afterAll(() => {
+afterEach(() => {
   fetchMock.restore();
+  cleanup();
 });

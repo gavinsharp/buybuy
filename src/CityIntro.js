@@ -1,41 +1,10 @@
 import React from 'react';
 
 class CityIntro extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      city: null,
-    }
-  }
-
-  componentDidMount() {
-    this.fetchCity();
-  }
-
-  cityUpdated(city) {
-    this.setState({ city: city });
-    if (this.props.onCityUpdated) {
-      this.props.onCityUpdated(city);
-    }
-  }
-
-  fetchCity() {
-    var url = 'http://api.ipstack.com/check?access_key=c4d75354c9a67d5b661a26001dc0254d&fields=city';
-    fetch(url)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.cityUpdated(responseJson.city)
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
   render() {
     return (
       <div>
-        <Greeting city={this.state.city} />
+        <Greeting city={this.props.city} />
       </div>
     );
   }
