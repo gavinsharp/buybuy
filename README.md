@@ -2,6 +2,11 @@
 
 where home buyers go to buy.
 
+## Quickstart
+* clone the repo
+* `npm install`
+* `npm start` or `npm test`
+
 ## Some outstanding items:
 * missing features
   * lead gen form, with address autocomplete
