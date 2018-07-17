@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo-256.png';
 import CityIntro from './CityIntro.js'
+import WhyBlurb from './WhyBlurb.js'
 import HomeListing from './HomeListing.js'
 import './App.css';
 
@@ -72,6 +73,7 @@ class App extends Component {
         </header>
         <CityIntro city={this.state.city} />
         <HomeListings className="HomeListings-container" listings={this.state.listings} />
+        <WhyBlurb />
       </div>
     );
   }
